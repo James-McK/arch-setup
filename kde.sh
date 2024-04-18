@@ -23,30 +23,15 @@ sudo cp -r "$HOME/.local/share/icons/Catppuccin-Macchiato-Mauve-Cursors/" "/usr/
 # folder icons
 papirus-folders -C cat-macchiato-mauve
 
-# GTK theme
-git clone --recurse-submodules https://github.com/catppuccin/gtk catppuccin-gtk && cd "./catppuccin-gtk"
-virtualenv -p python3 venv  # to be created only once and only if you need a virtual env
-source venv/bin/activate
-pip install -r requirements.txt
-python install.py macchiato -a mauve --tweaks rimless normal -d "$XDG_DATA_HOME/themes" -l
-cd ..
-rm -rf catppuccin-gtk/
-
 # sudo hardcode-tray -a
-
-# no shadow on bar
-sudo cp "./config/kde-no-shadow" "/usr/local/bin/kde-no-shadow"
-sudo chmod +x "/usr/local/bin/kde-no-shadow"
-mkdir -p "$HOME/.config/autostart/"
-cp "./config/kde-no-shadow.desktop" "$HOME/.config/autostart/"
 
 # kdeglobals
 
 ## General
 
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key AllowKDEAppsToRememberWindowPositions "false"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key Name --key en_GB "Catppuccin Macchiato Mauve"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key Name "Catppuccin Macchiato Mauve"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key Name --key en_GB "Catppuccin Macchiato Mauve"
 
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key font "IBM Plex Sans,10,-1,5,50,0,0,0,0,0"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group General --key fixed "IBM Plex Mono,10,-1,5,50,0,0,0,0,0"
@@ -73,11 +58,12 @@ kwriteconfig5 --file "$XDG_CONFIG_HOME/kdeglobals" --group KDE --key widgetStyle
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Desktops --key Number "8"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Desktops --key Rows "2"
 
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key blurEnabled "true"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key blurEnabled "false"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key lightlyshaders_blurEnabled "true"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key contrastEnabled "true"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key kwin4_effect_dimscreenEnabled "true"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key kwin4_effect_fadedesktopEnabled "true"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key slideEnabled "false"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key fadedesktopEnabled "true"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key poloniumEnabled "true"
 
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group TabBox --key LayoutName "thumbnail_grid"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group TabBox --key MinimizedMode "1"
@@ -92,22 +78,15 @@ kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group org.kde.kdecoration2 --ke
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group org.kde.kdecoration2 --key library "org.kde.lightly"
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group org.kde.kdecoration2 --key theme "Lightly"
 
-## forceblur
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-forceblur --key patterns $(printf "yakuake\nurxvt\nkeepassxc\nkitty")
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key forceblurEnabled "true"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group NightColor --key Active "true"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group NightColor --key LatitudeFixed "53.56275303643725"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group NightColor --key LongitudeFixed "-7.888446215139425"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group NightColor --key Mode "Location"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group NightColor --key NightTemperature "4200"
 
-## bismuth
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key enableFloatingLayout "true"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key keepFloatAbove "false"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key enableMonocleLayout "false"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key floatingClass "musicbee.exe,steam,systemsettings"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key noTileBorder "true"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key screenGapBottom "8"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key screenGapLeft "8"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key screenGapRight "8"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key screenGapTop "8"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-bismuth --key tileLayoutGap "8"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Plugins --key bismuthEnabled "true"
+
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-polonium --key FilterProcess "krunner, yakuake, kded, polkit, plasmashell, bitwarden, musicbee.exe, systemsettings"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrc" --group Script-polonium --key TimerDelay "4"
 
 # ksplashrc
 kwriteconfig5 --file "$XDG_CONFIG_HOME/ksplashrc" --group KSplash --key Theme "Catppuccin-Macchiato-Mauve-splash"
@@ -124,14 +103,10 @@ kwriteconfig5 --file "$XDG_CONFIG_HOME/krunnerrc" --group Plugins --key baloosea
 
 # kcminputrc
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kcminputrc" --group Mouse --key X11LibInputXAccelProfileFlat "true"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/kcminputrc" --group Mouse --key cursorTheme "Catppuccino-Macchiato-Mauve-Cursors"
+kwriteconfig5 --file "$XDG_CONFIG_HOME/kcminputrc" --group Mouse --key cursorTheme "Catppuccin-Macchiato-Mauve-Cursors"
 
 # baloofilerc
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kcminputrc" --group "Basic Settings" --key Indexing-Enabled "false"
-
-# plasmashellrc
-kwriteconfig5 --file "$XDG_CONFIG_HOME/plasmashellrc" --group "PlasmaViews" --group "Panel 2" --key panelOpacity "2"
-kwriteconfig5 --file "$XDG_CONFIG_HOME/plasmashellrc" --group "PlasmaViews" --group "Panel 2" --group "Defaults" --key thickness "24"
 
 # kwinrulesrc
 kwriteconfig5 --file "$XDG_CONFIG_HOME/kwinrulesrc" --group "1" --key Description "No Min Window Size"

@@ -13,5 +13,3 @@ syncthing cli config devices add --device-id WXUPQ65-XTVKWGV-FRKVLNV-YIS6CRY-BHS
 # librewolf pwas for firefox
 ln -s ~/.mozilla/native-messaging-hosts ~/.librewolf/native-messaging-hosts
 sudo ln -s /usr/lib/mozilla/native-messaging-hosts /usr/lib/librewolf/native-messaging-hosts
-
-sh "./nvidia.sh"

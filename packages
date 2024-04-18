@@ -55,6 +55,7 @@ yarn
 
 imagemagick
 inkscape
+gimp
 
 xdotool
 xorg-server-xvfb
@@ -82,3 +83,6 @@ whois
 godot
 handbrake
 obs-studio
+
+geekbench
+openssh

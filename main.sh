@@ -44,7 +44,7 @@ cp "./config/kitty.conf" "$XDG_CONFIG_HOME/kitty/kitty.conf"
 
 # gsettings stuff
 gsettings set org.gnome.desktop.interface font-antialiasing \'rgba\'
-gsettings set org.gnome.desktop.interface gtk-theme \'Catppuccin-Macchiato-Standard-Mauve-dark\'
+gsettings set org.gnome.desktop.interface gtk-theme \'Catppuccin-Macchiato-Standard-Mauve-Dark\'
 
 # syncthing
 syncthing cli config folders add --id qg4t0-4eepi --label "Android Camera" --path "$HOME/Pictures/AndroidCamera"
