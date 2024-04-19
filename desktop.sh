@@ -7,5 +7,6 @@ cp "./config/fiio-k3-fix.service" "$HOME/.config/systemd/user/"
 systemctl --user enable --now fiio-k3-fix
 
 # syncthing - devices
-syncthing cli config devices add --device-id KKYBFUF-45PZX63-5INJFI2-YAWLHGI-D63E3SN-5REEN4C-5UZF2BL-WF5UWAC --name hazel
-syncthing cli config devices add --device-id WXUPQ65-XTVKWGV-FRKVLNV-YIS6CRY-BHS5MTL-UDCL3DR-W4QLMV5-35OQCQD --name spruce
+syncthing cli config devices add --device-id FPVUK6F-OIHAEEV-L3API4Q-WSLAPXF-H3RH32R-AOD2FTX-QPYEAJH-NDE7XAG --name mangrove
+syncthing cli config devices add --device-id TFQC2KT-JLA5V6L-F3YTIJQ-7JTWQFQ-YTELKEA-DV6WYVB-TNXH2CZ-ODIQXAJ --name cherry-win
+syncthing cli config devices add --device-id C4TOZTS-MEC5ICV-LHF7UCZ-JT57ORG-OF66H4X-XGGC7UA-TEVIFVR-GRLXRAS --name cherry
